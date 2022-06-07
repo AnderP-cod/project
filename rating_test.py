@@ -17,8 +17,7 @@ def middle_ball():
                                 number8 = int(input("Введите бал по Информатики: "))
                                 if number8 <= 12:
                                     a = number1 + number2 + number3 + number4 + number5 + number6 + number7 + number8
-                                    student_average_score = f"Ученик {human}, средний бал {a // 8}"
-                                    print(student_average_score)
+                                    print(f"Ученик {human}, средний бал {a // 8}")
                             else:
                                 print("Ошибка_1 :Вы ввели бал не буквами или вы ввели бал больше 12")
                         else:
@@ -37,9 +36,11 @@ def middle_ball():
 
 try:
     item = int(input("Напишитее сколько учеников у вас в классе: "))
-    for i in range(item):
-        b = middle_ball()
-        print(b)
+    if item == 2:
+        i = [middle_ball(), middle_ball()]
+        i.sort(reverse=True)
+        print(i)
+
 
 except ValueError:
     print("Введите число цыфрами")
