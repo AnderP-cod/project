@@ -36,10 +36,10 @@ def middle_ball():
 
 try:
     item = int(input("Напишитее сколько учеников у вас в классе: "))
-    if item == 2:
-        i = [middle_ball(), middle_ball()]
-        i.sort(reverse=True)
-        print(i)
+    for i in range(item):
+        g = [middle_ball()]
+        g.sort(reverse=True)
+        print(g)
 
 
 except ValueError:
