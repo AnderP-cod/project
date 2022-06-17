@@ -1,49 +1,45 @@
+import os
+
+
 def middle_ball():
-    human = str(input("Введите свое имя: "))
-    number1 = int(input("Введите бал по Алгебре: "))
-    if number1 <= 12:
+    human = str(input("Введите имя ученика: "))
+    surname = str(input("Введите фамилию ученика: "))
+    try:
+        number1 = int(input("Введите бал по Алгебре: "))
         number2 = int(input("Введите бал по Геометрии: "))
-        if number2 <= 12:
-            number3 = int(input("Введите бал по Истории: "))
-            if number3 <= 12:
-                number4 = int(input("Введите бал по Укр_мове: "))
-                if number4 <= 12:
-                    number5 = int(input("Введите бал по Укр_лит: "))
-                    if number5 <= 12:
-                        number6 = int(input("Введите бал по Англ_мова: "))
-                        if number6 <= 12:
-                            number7 = int(input("Введите бал по Химии: "))
-                            if number7 <= 12:
-                                number8 = int(input("Введите бал по Информатики: "))
-                                if number8 <= 12:
-                                    a = number1 + number2 + number3 + number4 + number5 + number6 + number7 + number8
-                                    print(f"Ученик {human}, средний бал {a // 8}")
-                            else:
-                                print("Ошибка_1 :Вы ввели бал не буквами или вы ввели бал больше 12")
-                        else:
-                            print("Ошибка_1 :Вы ввели бал не буквами или вы ввели бал больше 12")
-                    else:
-                        print("Ошибка_1 :Вы ввели бал не буквами или вы ввели бал больше 12")
-                else:
-                    print("Ошибка_1 :Вы ввели бал не буквами или вы ввели бал больше 12")
-            else:
-                print("Ошибка_1 :Вы ввели бал не буквами или вы ввели бал больше 12")
+        number3 = int(input("Введите бал по Истории: "))
+        number4 = int(input("Введите бал по Укр_мове: "))
+        number5 = int(input("Введите бал по Укр_лит: "))
+        number6 = int(input("Введите бал по Англ_мова: "))
+        number7 = int(input("Введите бал по Химии: "))
+        number8 = int(input("Введите бал по Информатики: "))
+        list_number1 = [number1, number2, number3, number4, number5, number6, number7, number8]
+        twelve = [12]
+        sum_of_items = 8
+        if list_number1 <= twelve:
+            a = sum(list_number1)
+            global rating_class
+            rating_class = [f"Ученик {human} {surname}, средний бал {a // sum_of_items}"]
+            name = 'Рейтинг_Ученика'
+            os.makedirs(name)
+            os.chdir(f'D:{name}')
+            with open(f"{human} {surname}.txt", "w") as file:
+                file.write(str(rating_class))
         else:
-            print("Ошибка_1 :Вы ввели бал не буквами или вы ввели бал больше 12")
-    else:
-        print("Ошибка_1 :Вы ввели бал не буквами или вы ввели бал больше 12")
+            print("Вы ввели оценку больше 12")
+    except ValueError:
+        print("Введите число цыфрами")
 
 
 try:
     item = int(input("Напишитее сколько учеников у вас в классе: "))
-    for i in range(item):
-        g = [middle_ball()]
-        g.sort(reverse=True)
-        print(g)
 
+    def class_class():
+        for i in range(item):
+            middle_ball()
+        rating_class.sort()
+        print(rating_class)
+    class_class()
 
 except ValueError:
     print("Введите число цыфрами")
-
-
-
